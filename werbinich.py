@@ -48,3 +48,7 @@ def name_show(gameid, player):
     other_players.pop(player,None)
     pprint(other_players)
     return render_template("name_show.html", current_player=player, other_players=other_players)
+
+@app.errorhandler(KeyError)
+def not_found(error):
+    return "<h1>Not Found</h1>Object not found <br/> <a href={}>home</a>".format(url_for("create_game")), 404
