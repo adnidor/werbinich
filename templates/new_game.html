@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+{% block title %}New Game{% endblock %}
+{% block content %}
+
+<h1>New Game</h1>
+
+Please enter player names:
+<br/>
+<form method=post>
+{% for _ in range(10) %}
+<input type=text name=pname /><br/>
+{% endfor %}
+<input type=submit />
+</form>
+{% endblock %}

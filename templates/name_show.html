@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+{% block title %}Play!{% endblock %}
+{% block content %}
+
+<h1>Play!</h1>
+<h2>You are: {{ current_player }}</h2>
+
+<p>
+<table>
+{% for player,name in other_players.items() %}
+<tr><td>{{ player }}</td><td>{{ name }}</td></tr>
+{% endfor %}
+</table>
+</p>
+
+{% endblock %}
