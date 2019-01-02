@@ -7,9 +7,11 @@
 <p>
 Please select your player:
 <br/>
+<ul class=playerlist>
 {% for player in players %}
-<a href=./edit/{{ player }}>{{ player }}</a>
+<li><a href=./edit/{{ player }}>{{ player }}</a></li>
 {% endfor %}
+</ul>
 </p>
 
 <p>

@@ -3,15 +3,18 @@
 {% block content %}
 
 <h1>Choose a name</h1>
-<h2>You are: {{ current_player }}</h2>
+
+<div class=current_player_indicator>You are: {{ current_player }}</div>
 
 <p>
 Please name your player:
 <br/>
 <form method=post>
+<table>
 {% for player in other_players %}
-{{ player }}: <input type=text name={{ player }} /><br/>
+<tr><td>{{ player }}</td><td><input type=text name={{ player }} /></td></tr>
 {% endfor %}
+</table>
 <input type=submit />
 </form>
 </p>

@@ -46,8 +46,7 @@ def store_name(gameid, player):
 def name_show(gameid, player):
     other_players = dict(games[str(gameid)])
     other_players.pop(player,None)
-    pprint(other_players)
-    return render_template("name_show.html", current_player=player, other_players=other_players)
+    return render_template("name_show.html", current_player=player, other_players=other_players, edit_url=url_for("name_edit", gameid=gameid, player=player))
 
 @app.errorhandler(KeyError)
 def not_found(error):

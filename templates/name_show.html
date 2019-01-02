@@ -3,7 +3,7 @@
 {% block content %}
 
 <h1>Play!</h1>
-<h2>You are: {{ current_player }}</h2>
+<div class=current_player_indicator>You are: {{ current_player }}</div>
 
 <p>
 <table>
@@ -11,6 +11,10 @@
 <tr><td>{{ player }}</td><td>{{ name }}</td></tr>
 {% endfor %}
 </table>
+</p>
+
+<p>
+<a href={{ edit_url }}>Edit name</a> <a href={{ url_for('create_game') }}>New game</a>
 </p>
 
 {% endblock %}
