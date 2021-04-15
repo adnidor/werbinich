@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-from flask import Flask,render_template,request,url_for,redirect
+from flask import Flask, render_template, request, url_for, redirect
 from pprint import pprint
 from uuid import uuid4
-app = Flask(__name__)
 
+app = Flask(__name__)
 games = {}
 
 @app.route("/")
@@ -20,7 +20,7 @@ def create_game():
         mapping[player] = None
     games[gameid] = mapping
 
-    return redirect(url_for("player_select", gameid=gameid),303)
+    return redirect(url_for("player_select", gameid=gameid), 303)
 
 @app.route("/game/<uuid:gameid>/")
 def player_select(gameid):
@@ -45,9 +45,9 @@ def store_name(gameid, player):
 @app.route("/game/<uuid:gameid>/show/<player>")
 def name_show(gameid, player):
     other_players = dict(games[str(gameid)])
-    other_players.pop(player,None)
+    other_players.pop(player, None)
     return render_template("name_show.html", current_player=player, other_players=other_players, edit_url=url_for("name_edit", gameid=gameid, player=player))
 
 @app.errorhandler(KeyError)
 def not_found(error):
-    return "<h1>Not Found</h1>Object not found <br/> <a href={}>home</a>".format(url_for("create_game")), 404
+    return render_template("not_found.html"), 404

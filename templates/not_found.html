@@ -1,0 +1,10 @@
+{% extends "main.html" %}
+{% block title %}Not Found{% endblock %}
+{% block content %}
+<h1>Not Found</h1>
+
+Object not found
+<br/>
+
+<a href={{ url_for("create_game") }}>Home</a>
+{% endblock %}
